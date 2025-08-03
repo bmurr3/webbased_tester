@@ -1,6 +1,6 @@
 {
   "name": "Full Stack Development Environment",
-  "dockerFile": "Dockerfile",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
   "features": {
     "docker-in-docker": {
       "version": "latest"
@@ -27,7 +27,8 @@
     "dbaeumer.vscode-eslint",
     "ms-python.python",
     "ms-python.vscode-pylance",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "ms-vscode-remote.remote-containers"
   ],
   "postCreateCommand": "git lfs install && npm install -g @angular/cli",
   "remoteUser": "vscode",
