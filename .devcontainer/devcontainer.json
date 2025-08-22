@@ -31,7 +31,7 @@
     "ms-vscode-remote.remote-containers",
     "Darkace.vulnscanner"
   ],
-  "postCreateCommand": "git lfs install && npm install -g @angular/cli",
+  "postCreateCommand": "./.devcontainer/install.sh",
   "remoteUser": "vscode",
   "workspaceFolder": "/workspace",
   "settings": {
