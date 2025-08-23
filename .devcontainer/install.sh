@@ -13,4 +13,7 @@ sudo mkdir -p /usr/local/pgsql/data
 sudo chown postgres /usr/local/pgsql/data
 sudo -s su - postgres -c "/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data"
 sudo -s su - postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start"
-sudo -s su - postgres -c "/usr/local/pgsql/bin/createdb test"
+sudo -s su - postgres -c "/usr/local/pgsql/bin/createdb webtesterdb"
+
+export LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH
+export PATH=/usr/local/pgsql/bin:$PATH
