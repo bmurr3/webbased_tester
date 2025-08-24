@@ -27,3 +27,12 @@ export LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH
 export PATH=/usr/local/pgsql/bin:$PATH
 
 cd -
+
+# Providing Zoxide for future developers' use.
+cd /workspaces/downloads
+curl -sS https://webinstall.dev/zoxide | bash
+
+echo 'eval "$(zoxide init bash --cmd cd)"' >> ~/.bashrc
+cd -
+
+sudo apt install fzf
