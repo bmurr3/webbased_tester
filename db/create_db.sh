@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 WORKING_DIR=$(dirname "$0")
 
