@@ -31,7 +31,7 @@
     "ms-vscode-remote.remote-containers",
     "Darkace.vulnscanner"
   ],
-  "postCreateCommand": "chmod +x /workspaces/webbased_tester/.devcontainer/install.sh && /workspaces/webbased_tester/.devcontainer/install.sh",
+  "postCreateCommand": "chmod +x /workspaces/webbased_tester/.devcontainer/install.sh && source /workspaces/webbased_tester/.devcontainer/install.sh",
   "remoteUser": "vscode",
   "workspaceFolder": "/workspaces",
   "settings": {
