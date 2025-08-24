@@ -6,3 +6,4 @@ sudo -s su - postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -
 # Build the project database schema.
 ./db/create_db.sh
 
+python ./src/main.py
