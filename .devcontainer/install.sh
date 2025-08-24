@@ -26,6 +26,8 @@ fi
 
 sudo -s su - postgres -c "/usr/local/pgsql/bin/psql -c \"CREATE USER vscode WITH LOGIN;\""
 sudo -s su - postgres -c "/usr/local/pgsql/bin/psql -c \"GRANT ALL PRIVILEGES ON DATABASE test TO vscode;\""
+sudo -s su - postgres -c "/usr/local/pgsql/bin/psql -d webtesterdb -c \"GRANT CREATE ON SCHEMA public TO vscode;\""
+
 
 export LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH
 export PATH=/usr/local/pgsql/bin:$PATH
@@ -36,6 +38,8 @@ cd -
 cd /workspaces/downloads
 curl -sS https://webinstall.dev/zoxide | bash
 
+echo 'export PATH="/usr/local/pgsql/bin:$PATH"' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH="/usr/local/pgsql/lib:$LD_LIBRARY_PATH"' >> ~/.bashrc
 echo 'eval "$(zoxide init bash --cmd cd)"' >> ~/.bashrc
 cd -
 
