@@ -6,13 +6,9 @@ from typing import Final
 AUTH_VAR: Final[str] = os.environ.get("AUTH_VAR", "local_user_db")
 
 if AUTH_VAR == "ldap":
-    from users.ldap import LDAPAuth as AuthClass
+    from users.ldap import LDAPAuth as Authentication
 else:
-    from users.local_user_db import LocalUserDB as AuthClass
-
-
-class Authentication(AuthClass):
-    ...
+    from users.local_user_db import LocalUserDB as Authentication
 
 
 if __name__ == "__main__":

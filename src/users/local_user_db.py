@@ -55,6 +55,9 @@ class LocalUserDB(AuthenticationBase):
         return user is not None
 
     def add_user(self, username: str, password: str) -> None:
+        if self.authenticate(username, password):
+            return
+
         username_hash = self.hash_username(username)
         password_hash = self.hash_password(password)
 
