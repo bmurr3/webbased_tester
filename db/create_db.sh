@@ -11,3 +11,4 @@ psql -U vscode -d webtesterdb -f ${WORKING_DIR}/case.sql
 psql -U vscode -d webtesterdb -f ${WORKING_DIR}/step.sql
 
 psql -U vscode -d webtesterdb -f ${WORKING_DIR}/status.sql
+psql -U vscode -d webtesterdb -f ${WORKING_DIR}/user.sql
