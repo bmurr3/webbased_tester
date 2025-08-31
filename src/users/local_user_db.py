@@ -1,5 +1,5 @@
 # users/local_user_db.py
-import hashlib
+import bcrypt
 import psycopg2
 
 from users.authentication_base import AuthenticationBase
@@ -9,7 +9,8 @@ class LocalUserDB(AuthenticationBase):
     @classmethod
     def hash_username(cls, username: str) -> str:
         # Implement a simple hashing mechanism for the username
-        hashed_user = hashlib.sha256(username.encode()).hexdigest()
+        salt = bcrypt.gensalt()
+        hashed_user = bcrypt.hashpw(username.encode('utf-8'), salt)
 
         if len(hashed_user) > 50:
             hashed_user = hashed_user[:50]
@@ -18,7 +19,8 @@ class LocalUserDB(AuthenticationBase):
     @classmethod
     def hash_password(cls, password: str) -> str:
         # Implement a simple hashing mechanism for the password
-        return hashlib.sha256(password.encode()).hexdigest()
+        salt = bcrypt.gensalt()
+        return bcrypt.hashpw(password.encode('utf-8'), salt)
 
     def __init__(self):
         self.__db_conn = psycopg2.connect(
