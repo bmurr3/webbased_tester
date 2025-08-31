@@ -29,6 +29,20 @@ class LocalUserDB(AuthenticationBase):
         )
         self.__db_cursor = self.__db_conn.cursor()
 
+    def close(self):
+        if hasattr(self, "__db_cursor") and self.__db_cursor:
+            self.__db_cursor.close()
+            self.__db_cursor = None
+        if hasattr(self, "__db_conn") and self.__db_conn:
+            self.__db_conn.close()
+            self.__db_conn = None
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()
+
     def authenticate(self, username: str, password: str) -> bool:
         username_hash = self.hash_username(username)
         password_hash = self.hash_password(password)
